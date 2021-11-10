@@ -16,6 +16,14 @@ app.use(express.json())
 // call model
 const models = require("../models/index")
 const transaksi = models.transaksi
+
+
+// panggil fungsi auth -> validasi token
+const {auth} = require("./login")
+
+// fungsi auth dijadikan middleware
+app.use(auth)
+
 const detail_transaksi = models.detail_transaksi
 
 

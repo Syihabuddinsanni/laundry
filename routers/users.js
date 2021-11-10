@@ -17,6 +17,13 @@ const models = require("../models/index")
 const users = models.users
 
 
+// panggil fungsi auth -> validasi token
+const {auth} = require("./login")
+
+// fungsi auth dijadikan middleware
+app.use(auth)
+
+
 // endpoint get data users
 app.get("/", async(request, response) => {
     let dataUsers = await users.findAll()

@@ -6,10 +6,7 @@ $$ /  $$ |\_$$ |  \_$$ |  \_$$ |
 $$  __$$<   $$ |    $$ |    $$ |  
 $$ /  $$ |  $$ |    $$ |    $$ |  
 \$$$$$$  |$$$$$$\ $$$$$$\ $$$$$$\ 
- \______/ \______|\______|\______|
-                                  
-                                  
-                                  
+ \______/ \______|\______|\______|                        
 */
 const { response, request } = require("express")
 const express = require("express")
@@ -24,6 +21,12 @@ const models = require("../models/index")
 
 // panggil model "paket"
 const paket = models.paket
+
+// panggil fungsi auth -> validasi token
+const {auth} = require("./login")
+
+// fungsi auth dijadikan middleware
+app.use(auth)
 
 // endpoit for get all paket
 app.get("/", async (request, response) => {
