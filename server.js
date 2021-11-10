@@ -17,7 +17,8 @@ app.use("/auth", login)
 app.listen(1337,() => {
     console.log(`Server run on port 1337`);
 })
-// OLD
+
+// split
 /* const express = require("express")
 const app = express()
 
